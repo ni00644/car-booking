@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>車輛預約系統</title>
+</head>
+<body>
+    <h2>車輛預約</h2>
+    <form method="post" action="/book">
+        <label>姓名: <input type="text" name="name" required></label><br><br>
+        <label>車輛:
+            <select name="car">
+                {% for car in cars %}
+                <option value="{{ car }}">{{ car }}</option>
+                {% endfor %}
+            </select>
+        </label><br><br>
+        <label>日期: <input type="date" name="date" required></label><br><br>
+        <label>時段:
+            <select name="timeslot">
+                {% for slot in timeslots %}
+                <option value="{{ slot }}">{{ slot }}</option>
+                {% endfor %}
+            </select>
+        </label><br><br>
+        <button type="submit">送出預約</button>
+    </form>
+    <br>
+    <a href="/bookings">查看預約紀錄</a>
+</body>
+</html>
